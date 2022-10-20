@@ -1,3 +1,14 @@
+:root{
+  --Orange: hsl(26, 100%, 55%);/*FF7D1A*/
+--Paleorange: hsl(25, 100%, 94%);/*FFEDE0*/
+--Verydarkblue: hsl(220, 13%, 13%);/*1D2025*/
+--Darkgrayishblue: hsl(219, 9%, 45%);/*68707D*/
+--Grayishblue: hsl(220, 14%, 75%);/*B6BCC8*/
+--Lightgrayishblue: hsl(223, 64%, 98%);/*F7F8FD*/
+--White: hsl(0, 0%, 100%);/*FFFFFF*/
+--Black: hsl(0, 0%, 0%);
+}
+
 .App {
   text-align: center;
 }
