@@ -40,9 +40,27 @@ class Content extends React.Component{
         return(
             <div className="md:container md:px-5 lg:px-0 mx-auto grid md:grid-cols-2 md:pt-[7rem] gap-[5rem] lg:gap-[8rem] items-center pb-[2rem] relative">
                 {this.props.DisCart?
-                <div className="absolute rounded-lg shadow-2xl bg-white w-[300px] h-[300px] -top-[2%] right-0">
+                <div className="z-20 absolute rounded-lg shadow-2xl bg-white right-1/2 transform translate-x-1/2 mt-[1rem]  w-[96%] md:w-[370px] md:translate-x-0 md:h-[230px] top-0 md:-top-[2%] md:right-0">
                     <h2 className="font-bold p-[1rem] border-b boder-2">Cart</h2>
-                   
+                    {this.props.Cart.length?
+                    <div className="p-[1.5rem]">
+                        <div className="flex justify-between items-center">
+                            <div className="flex gap-[1rem]">
+                                <img src={this.props.Cart[0].image} alt="thumbnail" className="w-[50px] h-[50px]"/>
+                                <div className="flex flex-col">
+                                    <p>{this.props.Cart[0].name}</p>
+                                    <p>${this.props.Cart[0].price} x<span> {this.props.Cart[0].stock} </span><span className="font-bold"> ${this.props.Cart[0].total.toFixed(2)}</span></p>
+                                </div>
+                            </div>
+                            <img src="images/icon-delete.svg" alt="delete" className="cursor-pointer" onClick={() => this.props.OnRemove(this.props.Cart[0].name)}/>
+                        </div>
+                    <button className="w-full p-[1rem] bg-[#FF7D1A] text-center mt-[1rem] rounded-lg text-white font-bold">Checkout</button>
+                   </div>
+                    :
+                    <div className="flex items-center justify-center  h-[200px]">Your cart is empty
+                    </div>
+                    }
+                    
                 </div>
                 :
                 null}
@@ -78,7 +96,7 @@ class Content extends React.Component{
                             <p className="font-bold">{this.props.piece}</p>
                             <img src="images/icon-plus.svg" alt="plus" className="cursor-pointer p-[1rem]" onClick={() => this.props.OnAddPiece(1)}/>
                         </div>
-                        <div className="bg-[#FF7D1A] text-white p-[1rem] rounded-lg w-full md:w-[170px] lg:w-[250px] shadow-lg shadow-[#FF7D1A] cursor-pointer hover:opacity-60">
+                        <div className="bg-[#FF7D1A] text-white p-[1rem] rounded-lg w-full md:w-[170px] lg:w-[250px] shadow-lg shadow-[#FF7D1A] cursor-pointer hover:opacity-60" onClick={this.props.OnAddCart}>
                             <div className="flex gap-[1rem] justify-center">
                                 <svg className="fill-white" width="22" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z"  fillRule="nonzero"/></svg>
                                 <p>Add to cart</p>
