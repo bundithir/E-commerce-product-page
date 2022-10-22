@@ -5,7 +5,7 @@ class Content extends React.Component{
         super(props)
         this.state = {
             product : this.props.item[0].images[0],
-            thumbActive : 1 ,
+            thumbActive : 0 ,
         }
     }
 
